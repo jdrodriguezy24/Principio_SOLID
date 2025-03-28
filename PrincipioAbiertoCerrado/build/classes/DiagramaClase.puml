@@ -1,0 +1,31 @@
+@startuml
+interface SuperHabilidad {
+    + ejecutar() : void
+}
+
+class Volar {
+    + ejecutar() : void
+}
+
+class SuperFuerza {
+    + ejecutar() : void
+}
+
+class Superheroe {
+    - nombre : String
+    - habilidades : List<SuperHabilidad>
+    + Superheroe(nombre : String)
+    + agregarHabilidad(habilidad : SuperHabilidad) : void
+    + mostrarHabilidades() : void
+}
+
+class Main {
+    + main(args : String[]) : void
+}
+
+SuperHabilidad <|.. Volar
+SuperHabilidad <|.. SuperFuerza
+Superheroe "1" o-- "*" SuperHabilidad
+Main ..> Superheroe : usa
+
+@enduml
